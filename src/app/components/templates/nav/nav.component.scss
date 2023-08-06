@@ -1,0 +1,53 @@
+@use "../../../../assets/scss/base/variables" as v;
+@use "../../../../assets/scss/base/mixins" as m;
+
+.nav {
+  display: none;
+  &__menu {
+    ul {
+      display: none;
+    }
+  }
+}
+
+@include m.xl_desktop {
+  .nav {
+    display: flex;
+    flex-direction: row;
+    margin-top: 3.8rem;
+    border-radius: 1rem;
+    margin-left: 14rem;
+    margin-right: 14rem;
+    background-color: v.$nav;
+    padding-top: 1.3rem;
+    padding-bottom: 1.3rem;
+    padding-left: 2.3rem;
+    padding-right: 2.3rem;
+    justify-content: space-between;
+    align-items: center;
+    &__logo {
+      a {
+        img {
+          width: 150px;
+          height: 39px;
+        }
+      }
+    }
+    &__menu {
+      ul {
+        display: flex;
+        flex-direction: row;
+        gap: 1.7rem;
+        li {
+          a {
+            color: rgba(v.$blanco, 0.5);
+            @include m.enlace;
+            &.active {
+              color: darken(v.$primary, 30);
+            }
+          }
+        }
+      }
+    }
+  }
+}
