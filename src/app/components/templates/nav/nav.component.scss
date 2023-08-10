@@ -14,15 +14,10 @@
   .nav {
     display: flex;
     flex-direction: row;
-    margin-top: 3.8rem;
     border-radius: 1rem;
-    margin-left: 14rem;
-    margin-right: 14rem;
+    margin: 3.8rem 14rem 0;
     background-color: v.$nav;
-    padding-top: 1.3rem;
-    padding-bottom: 1.3rem;
-    padding-left: 2.3rem;
-    padding-right: 2.3rem;
+    padding: 1.3rem 2.3rem;
     justify-content: space-between;
     align-items: center;
     &__logo {

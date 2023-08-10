@@ -2,5 +2,121 @@
 @use "../../../assets/scss/base/mixins" as m;
 
 .inicio {
+  display: flex;
   @include m.contenedor;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 6rem;
+  gap: 3rem;
+  &__movil {
+    order: 1;
+  }
+  &__info {
+    order: 3;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 2.4rem;
+    &--badge {
+      width: 10rem;
+    }
+    &--title {
+      font-size: 4.2rem;
+      font-weight: bold;
+      color: rgba(v.$blanco, 0.7);
+      margin: 0;
+      width: 4.11rem;
+    }
+    &--description {
+      color: rgba(v.$blanco, 0.5);
+      font-size: 2rem;
+    }
+    &--socials {
+      display: none;
+    }
+  }
+
+  &__logo {
+    order: 2;
+    // width: 45.9rem;
+    // height: 46.2rem;
+    width: 32rem;
+  }
+
+  &__download {
+    margin-bottom: 6rem;
+    order: 4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    &--download {
+      color: rgba(v.$primary, 0.5);
+      &:hover {
+        color: rgba(v.$blanco, 0.5);
+      }
+    }
+    &--contact {
+      border-radius: 1rem;
+      border: 0.1rem solid rgba(v.$primary, 0.5);
+      width: 19.6rem;
+      padding: 1rem 1.5rem;
+      font-size: 1.6rem;
+      font-weight: 700;
+      line-height: 1.5;
+      color: rgba(v.$primary, 0.5);
+      &:hover {
+        color: rgba(v.$blanco, 0.5);
+        background-color: rgba(v.$primary, 0.5);
+      }
+    }
+  }
+
+  @include m.desktop {
+    flex-direction: row;
+    gap: 0rem;
+    &__movil {
+      display: none;
+    }
+    &__info {
+      &--socials {
+        display: block;
+      }
+      order: 1;
+      &--badge {
+        width: 16rem;
+      }
+      &--title {
+        font-size: 5.2rem;
+        color: v.$blanco;
+      }
+    }
+
+    &__logo {
+      order: 2;
+      width: 49rem;
+    }
+
+    &__download {
+      margin-bottom: 0rem;
+      order: 3;
+      flex-direction: column;
+      align-items: flex-end;
+      &--download {
+        color: v.$primary;
+        &:hover {
+          color: rgba(v.$blanco, 0.5);
+        }
+      }
+      &--contact {
+        border: 0.1rem solid v.$primary;
+        &:hover {
+          color: v.$blanco;
+          background-color: v.$primary;
+        }
+      }
+    }
+  }
 }

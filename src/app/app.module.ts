@@ -14,6 +14,8 @@ import { TechsSkillsComponent } from './components/techs-skills/techs-skills.com
 import { CarrerComponent } from './components/carrer/carrer.component';
 import { TestimonialsComponent } from './components/testimonials/testimonials.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { BadgesComponent } from './shared/badges/badges.component';
+import { SocialsIconsComponent } from './shared/socials-icons/socials-icons.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { ContactComponent } from './components/contact/contact.component';
     TechsSkillsComponent,
     CarrerComponent,
     TestimonialsComponent,
-    ContactComponent
+    ContactComponent,
+    BadgesComponent,
+    SocialsIconsComponent
   ],
   imports: [
     BrowserModule,

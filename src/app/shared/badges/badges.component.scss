@@ -1,0 +1,29 @@
+@use "../../../assets/scss/base/variables" as v;
+@use "../../../assets/scss/base/mixins" as m;
+
+.badge {
+  text-transform: capitalize;
+  background-color: rgba(v.$primary, 0.1);
+  border-radius: 1.6rem;
+  width: 100%;
+  height: 4.5rem;
+  display: grid;
+  place-content: center;
+  &--text {
+    padding: 0.5rem 1rem 0.4rem 1rem;
+    text-align: center;
+    font-weight: bold;
+    color: rgba(v.$primary, 0.5);
+    font-size: 1.4rem;
+  }
+
+  @include m.desktop {
+    &--text {
+      padding: 0.5rem 1rem 0.4rem 1rem;
+      text-align: center;
+      font-weight: bold;
+      color: v.$primary;
+      font-size: 2rem;
+    }
+  }
+}
