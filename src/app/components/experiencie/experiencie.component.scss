@@ -29,6 +29,10 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
+      &--background {
+        border: 0.1rem solid rgba(v.$primary, 0.1);
+        background-color: rgba(v.$primary, 0.1);
+      }
       img {
         width: 7.2rem;
         height: 6.4rem;
@@ -75,6 +79,7 @@
       justify-content: space-between;
       padding: 2rem 2.7rem;
       border-radius: 1.6rem;
+      margin-bottom: 9.1rem;
 
       &--card {
         text-align: center;
