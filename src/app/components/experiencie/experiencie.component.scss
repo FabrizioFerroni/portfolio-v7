@@ -1,0 +1,93 @@
+@use "../../../assets/scss/base/variables" as v;
+@use "../../../assets/scss/base/mixins" as m;
+
+.experiencie {
+  height: 54.2rem;
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &__card {
+    display: none;
+  }
+
+  &__cards {
+    margin-top: 7rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+    justify-content: center;
+    align-items: center;
+    &--card {
+      border: 0.1rem solid v.$primary;
+      border-radius: 1.6rem;
+      width: 24.6rem;
+      height: 20rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      img {
+        width: 7.2rem;
+        height: 6.4rem;
+      }
+      span {
+        color: rgba(v.$blanco, 0.5);
+        font-size: 1.6rem;
+      }
+      p {
+        font-size: 2.4rem;
+        font-weight: bold;
+      }
+    }
+  }
+
+  @include m.desktop {
+    margin-top: 24.2rem;
+    border-top: 0.1rem solid rgba(v.$primary, 0.2);
+    border-bottom: 0.1rem solid rgba(v.$primary, 0.2);
+
+    &__cards {
+      margin-top: 10rem;
+      flex-direction: row;
+      gap: 8rem;
+      &--card {
+        img {
+          width: 7.2rem;
+          height: 6.5rem;
+        }
+        p {
+          font-size: 3.2rem;
+          font-weight: bold;
+        }
+      }
+    }
+
+    &__card {
+      background-color: rgba(v.$primary, 0.1);
+      height: 11rem;
+      width: 89.8rem;
+      margin-top: 4.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2rem 2.7rem;
+      border-radius: 1.6rem;
+
+      &--card {
+        text-align: center;
+        span {
+          font-size: 1.6rem;
+          color: v.$primary;
+        }
+        p {
+          font-size: 3.2rem;
+          color: v.$primary;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
