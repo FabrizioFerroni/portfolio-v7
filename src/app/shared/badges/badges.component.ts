@@ -7,4 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class BadgesComponent {
   @Input() title!: string;
+  @Input() font_size?: string;
 }

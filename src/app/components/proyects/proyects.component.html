@@ -1,1 +1,170 @@
-<p>proyects works!</p>
+<section id="proyectos" class="proyectos">
+  <div class="proyectos__info">
+    <div class="proyectos__info--nofilters">
+      <div class="proyectos__info--nofilters-badge">
+        <app-badges title="🔗 Portfólio"></app-badges>
+      </div>
+      <h2 class="proyectos__info--nofilters-title">Mis proyectos personales</h2>
+    </div>
+    <div class="proyectos__info--filters">
+      <a
+        href="javascript:void(0);"
+        class="proyectos__info--filters-cards"
+        (click)="changeCategory('frontend')"
+        [ngClass]="{
+          'proyectos__info--filters-cards--background':
+            activeCategory === 'frontend'
+        }"
+      >
+        <img src="../../../assets/img/frontend.svg" alt="" />
+        Frontend
+      </a>
+      <a
+        href="javascript:void(0);"
+        (click)="changeCategory('backend')"
+        class="proyectos__info--filters-cards"
+        [ngClass]="{
+          'proyectos__info--filters-cards--background':
+            activeCategory === 'backend'
+        }"
+      >
+        <img src="../../../assets/img/backend.svg" alt="" />
+        Backend
+      </a>
+      <a
+        href="javascript:void(0);"
+        class="proyectos__info--filters-cards"
+        (click)="changeCategory('fullstack')"
+        [ngClass]="{
+          'proyectos__info--filters-cards--background':
+            activeCategory === 'fullstack'
+        }"
+      >
+        <img src="../../../assets/img/fullstack.svg" alt="" />
+        Full Stack
+      </a>
+    </div>
+  </div>
+  <div class="proyectos__data">
+    <div
+      class="proyectos__data--arrows"
+      *ngIf="(project | proyects : page : limit : category).length > 0"
+    >
+      <button
+        class="proyectos__data--arrows--links"
+        (click)="lastPage()"
+        [disabled]="isFirstPage()"
+      >
+        &lt;
+      </button>
+      <button
+        class="proyectos__data--arrows--links"
+        (click)="nextPage()"
+        [disabled]="isLastPage()"
+      >
+        &gt;
+      </button>
+    </div>
+    <div class="proyectos__data--cards">
+      <div
+        class="proyectos__data--cards-card"
+        *ngFor="let item of project | proyects : page : limit : category"
+      >
+        <div class="proyectos__data--cards-card-live">
+          <p class="proyectos__data--cards-card-live-title">
+            {{ item.title }}
+            <a
+              [href]="item.url_github"
+              title="Ir al repositorio"
+              class="proyectos__data--cards-card-live-title-github"
+              target="_blank"
+              *ngIf="!item.is_private"
+            >
+              <i class="uil uil-github"></i
+            ></a>
+          </p>
+          <span class="proyectos__data--cards-card-live-links">
+            <a
+              [href]="item.url_proyecto"
+              class="proyectos__data--cards-card-live-links-online"
+              *ngIf="item.is_online"
+              title="Ir al proyecto"
+              target="_blank"
+            >
+              <svg
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                width="10"
+                height="10"
+                viewBox="0 0 120 120"
+              >
+                <circle cx="60" cy="60" r="50" fill="rgb(16 185 129)" />
+              </svg>
+              en linea
+              <i class="uil uil-arrow-up-right"></i
+            ></a>
+            <!-- <a href="" *ngIf="!item.is_online">
+              <svg
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                width="10"
+                height="10"
+                viewBox="0 0 120 120"
+              >
+                <circle cx="60" cy="60" r="50" fill="rgb(185, 16, 16)" />
+              </svg>
+              no disponible</a
+            > -->
+          </span>
+        </div>
+        <span class="proyectos__data--cards-card-description">{{
+          item.description
+        }}</span>
+        <div class="proyectos__data--cards-card-tags">
+          <span
+            *ngFor="let tag of item.tags"
+            class="proyectos__data--cards-card-tags-tag"
+          >
+            {{ tag }}
+          </span>
+        </div>
+        <img
+          [src]="item.image"
+          [alt]="item.title"
+          class="proyectos__data--cards-card-img"
+        />
+      </div>
+    </div>
+    <div class="proyectos__data--cards-card--np">
+      <div
+        *ngIf="(project | proyects : page : limit : category).length < 1"
+        class="proyectos__data--cards-card--np-noproyect"
+      >
+        <p class="proyectos__data--cards-card--np-noproyect-p">
+          ⚠️ No se han encontrado proyectos.
+        </p>
+        <a
+          href="https://github.com/FabrizioFerroni"
+          target="_blank"
+          class="proyectos__data--cards-card--np-noproyect-a"
+          rel="noopener noreferer"
+          >Ver mis repositorios en Github <i class="uil uil-arrow-right"></i
+        ></a>
+      </div>
+    </div>
+    <div
+      class="proyectos__data--more"
+      *ngIf="(project | proyects : page : limit : category).length > 0"
+    >
+      <a
+        class="proyectos__data--more--links"
+        href="#"
+        target="_blank"
+        rel="noreferer noopener"
+        >Ver más proyectos en Github <i class="uil uil-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- https://github.com/FabrizioFerroni -->

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -16,6 +16,7 @@ import { TestimonialsComponent } from './components/testimonials/testimonials.co
 import { ContactComponent } from './components/contact/contact.component';
 import { BadgesComponent } from './shared/badges/badges.component';
 import { SocialsIconsComponent } from './shared/socials-icons/socials-icons.component';
+import { ProyectsPipe } from './pipes/proyects.pipe';
 
 @NgModule({
   declarations: [
@@ -32,13 +33,11 @@ import { SocialsIconsComponent } from './shared/socials-icons/socials-icons.comp
     TestimonialsComponent,
     ContactComponent,
     BadgesComponent,
-    SocialsIconsComponent
+    SocialsIconsComponent,
+    ProyectsPipe,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
