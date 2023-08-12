@@ -52,10 +52,10 @@
   &__data {
     margin: 2.9rem 0;
     &--arrows {
+      // margin-right: 3.6rem;
       display: flex;
       justify-content: flex-end;
       gap: 1.6rem;
-      // margin-right: 3.6rem;
       margin-bottom: 3.5rem;
       &--links {
         display: flex;
@@ -231,6 +231,9 @@
     }
     &__data {
       margin: 10rem 0;
+      &--arrows {
+        margin-right: 3.5rem;
+      }
       // display: flex;
       // justify-content: center;
       // align-items: center;
