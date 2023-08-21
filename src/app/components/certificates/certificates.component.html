@@ -1,1 +1,68 @@
-<p>certificates works!</p>
+<section id="certificados" class="certificados">
+  <div class="certificados__info">
+    <div class="certificados__info--titles">
+      <h2 class="certificados__info--title">Mis certificados</h2>
+      <span class="certificados__info--description"
+        >Siempre es bueno saber un poco sobre mis certificados obtenidos.</span
+      >
+    </div>
+
+    <div
+      class="certificados__info--arrows"
+      *ngIf="(certificate | certificates : page : limit).length > 0"
+    >
+      <button
+        class="certificados__info--arrows--links"
+        (click)="lastPage()"
+        [disabled]="isFirstPage()"
+      >
+        &lt;
+      </button>
+      <button
+        class="certificados__info--arrows--links"
+        (click)="nextPage()"
+        [disabled]="isLastPage()"
+      >
+        &gt;
+      </button>
+    </div>
+  </div>
+  <div class="certificados__data">
+    <div class="certificados__data--cards">
+      <div
+        class="certificados__data--cards-card"
+        *ngFor="let item of certificate | certificates : page : limit"
+      >
+        <img
+          [src]="item.image"
+          [alt]="item.title"
+          class="certificados__data--cards-card-img"
+        />
+        <div class="certificados__data--cards-card-1">
+          <p class="certificados__data--cards-card-1-p">{{ item.title }}</p>
+          <div class="certificados__data--cards-card-1-tags">
+            <span
+              *ngFor="let tag of item.tags"
+              class="certificados__data--cards-card-1-tags-tag"
+            >
+              {{ tag }}
+            </span>
+          </div>
+        </div>
+        <div class="certificados__data--cards-card-2">
+          <span class="certificados__data--cards-card-2-inst">
+            {{ item.academy }}
+          </span>
+          <span class="certificados__data--cards-card-2-fecha">
+            {{ item.range_fecha }}
+          </span>
+        </div>
+        <div class="certificados__data--cards-card-download">
+          <button class="certificados__data--cards-card-download-button">
+            Descargar Certificado
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

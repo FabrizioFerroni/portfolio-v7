@@ -17,6 +17,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { BadgesComponent } from './shared/badges/badges.component';
 import { SocialsIconsComponent } from './shared/socials-icons/socials-icons.component';
 import { ProyectsPipe } from './pipes/proyects.pipe';
+import { CertificatesPipe } from './pipes/certificates.pipe';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ProyectsPipe } from './pipes/proyects.pipe';
     BadgesComponent,
     SocialsIconsComponent,
     ProyectsPipe,
+    CertificatesPipe,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
