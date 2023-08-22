@@ -41,12 +41,12 @@ export class CarrerComponent implements OnInit {
     this.getAllAcademys();
   }
 
-  getWorks(): Observable<any> {
-    return this.http.get('../../../assets/db/works.json');
+  getWorks(): Observable<Works> {
+    return this.http.get<Works>('../../../assets/db/works.json');
   }
 
-  getAcademys(): Observable<any> {
-    return this.http.get('../../../assets/db/academys.json');
+  getAcademys(): Observable<Academys> {
+    return this.http.get<Academys>('../../../assets/db/academys.json');
   }
 
   getAllWorks(): void {
