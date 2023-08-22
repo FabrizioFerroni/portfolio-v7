@@ -1,0 +1,90 @@
+@use "../../../assets/scss/base/variables" as v;
+@use "../../../assets/scss/base/mixins" as m;
+.habilidades {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &--badge {
+      width: 23rem;
+    }
+    &--title {
+      padding-top: 1.6rem;
+      display: block;
+      margin: 0;
+      font-size: 2.4rem;
+      font-weight: 900;
+      text-align: center;
+    }
+  }
+
+  &__techs {
+    &--actuales,
+    &--otras {
+      &-title {
+        display: block;
+        margin-top: 3.2rem;
+        font-size: 2rem;
+        color: rgba(v.$blanco, 0.5);
+        text-align: center;
+      }
+      &-languages {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 3rem;
+        padding-top: 4rem;
+        flex-wrap: wrap;
+        width: 30rem;
+        i {
+          font-size: 4.4rem;
+          color: rgba(v.$primary, 0.5);
+        }
+      }
+    }
+  }
+
+  @include m.desktop {
+    &__info {
+      &--badge {
+        width: 30.2rem;
+      }
+      &--title {
+        padding-top: 2.3rem;
+        font-size: 4.8rem;
+      }
+    }
+
+    &__techs {
+      &--actuales {
+        &-title {
+          margin-top: 10rem;
+        }
+      }
+      &--otras {
+        &-title {
+          margin-top: 5.7rem;
+        }
+      }
+      &--actuales,
+      &--otras {
+        &-title {
+          font-size: 2.4rem;
+        }
+        &-languages {
+          width: 80rem;
+          i {
+            font-size: 6.4rem;
+            color: rgba(v.$primary, 0.5);
+          }
+        }
+      }
+    }
+  }
+}
