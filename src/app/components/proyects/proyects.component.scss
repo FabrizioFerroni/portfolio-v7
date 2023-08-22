@@ -10,14 +10,21 @@
   &__info {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 100%;
-    &--nofilters-badge {
-      width: 10.3rem;
-    }
-    &--nofilters-title {
-      margin: 2.2rem 4.3rem 3.2rem 0rem;
-      font-size: 2.4rem;
-      font-weight: 900;
+    &--nofilters {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      &-badge {
+        width: 10.3rem;
+      }
+      &-title {
+        font-size: 2.4rem;
+        font-weight: 900;
+      }
     }
     &--filters {
       display: flex;
@@ -212,13 +219,19 @@
       justify-content: space-between;
       align-items: flex-end;
 
-      &--nofilters-badge {
-        width: 14.4rem;
-      }
+      &--nofilters {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
 
-      &--nofilters-title {
-        margin: 2.4rem 0 0 0;
-        font-size: 4.8rem;
+        &-badge {
+          width: 14.4rem;
+        }
+        &-title {
+          margin: 2.4rem 0 0 0;
+          font-size: 4.8rem;
+        }
       }
 
       &--filters {

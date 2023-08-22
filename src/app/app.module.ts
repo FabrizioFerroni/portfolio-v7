@@ -18,6 +18,8 @@ import { BadgesComponent } from './shared/badges/badges.component';
 import { SocialsIconsComponent } from './shared/socials-icons/socials-icons.component';
 import { ProyectsPipe } from './pipes/proyects.pipe';
 import { CertificatesPipe } from './pipes/certificates.pipe';
+import { WorksPipe } from './pipes/works.pipe';
+import { AcademysPipe } from './pipes/academys.pipe';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { CertificatesPipe } from './pipes/certificates.pipe';
     SocialsIconsComponent,
     ProyectsPipe,
     CertificatesPipe,
+    WorksPipe,
+    AcademysPipe,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],

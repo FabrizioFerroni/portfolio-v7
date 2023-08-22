@@ -27,7 +27,7 @@
       font-weight: bold;
       color: rgba(v.$blanco, 0.7);
       margin: 0;
-      width: 4.11rem;
+      width: 100%;
     }
     &--description {
       color: rgba(v.$blanco, 0.5);
@@ -91,6 +91,7 @@
       &--title {
         font-size: 5.2rem;
         color: v.$blanco;
+        width: 4.11rem;
       }
     }
 

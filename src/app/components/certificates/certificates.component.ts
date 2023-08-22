@@ -35,7 +35,6 @@ export class CertificatesComponent implements OnInit {
       (data) => {
         this.certificates = data;
         this.certificate = data.certificates;
-        console.log(this.certificate);
       },
       (err) => {
         console.error(err);

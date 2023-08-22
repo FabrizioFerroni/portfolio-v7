@@ -1,0 +1,395 @@
+@use "../../../assets/scss/base/variables" as v;
+@use "../../../assets/scss/base/mixins" as m;
+.carrera {
+  margin-top: 14.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  &__info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    // margin-left: 2.4rem;
+    &--badge {
+      width: 9.6rem;
+    }
+    &--title {
+      font-weight: 900;
+      font-size: 2.4rem;
+      padding-top: 1.6rem;
+    }
+  }
+
+  &__carreras {
+    padding-top: 2.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2.4rem;
+
+    &--works {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      &-title {
+        font-size: 1.6rem;
+        font-weight: 900;
+      }
+      &-description {
+        padding-top: 0.7rem;
+        font-size: 1.2rem;
+        color: rgba(v.$blanco, 0.5);
+      }
+
+      &-cards {
+        border-radius: 0.8rem;
+        border: 0.1rem solid rgba(v.$primary, 0.5);
+        padding: 3.5rem 2.9rem 2rem 2.9rem;
+        width: 29.7rem;
+        height: auto;
+        margin-top: 2.4rem;
+        &-active {
+          background-color: rgba(v.$primary, 0.1);
+          border: 0;
+        }
+        &-title {
+          font-size: 1.6rem;
+          font-weight: bold;
+        }
+        &-empresa {
+          display: block;
+          padding-top: 0.5rem;
+          font-size: 1.5rem;
+          color: rgba(v.$blanco, 0.65);
+        }
+        &-description {
+          display: block;
+          padding-top: 1.9rem;
+          font-size: 1.4rem;
+          color: rgba(v.$blanco, 0.5);
+        }
+        &-infodate {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 1rem;
+          flex-direction: row;
+          padding-top: 2.3rem;
+          &-duration {
+            color: v.$primary;
+            font-size: 1.2rem;
+            font-weight: bold;
+          }
+          &-fecha {
+            color: v.$primary;
+            font-size: 1.2rem;
+            font-weight: normal;
+          }
+        }
+      }
+    }
+
+    &--academys {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding-top: 2.4rem;
+      &-title {
+        font-size: 1.6rem;
+        font-weight: 900;
+      }
+      &-description {
+        padding-top: 0.7rem;
+        font-size: 1.2rem;
+        color: rgba(v.$blanco, 0.5);
+      }
+
+      &-cards {
+        border-radius: 0.8rem;
+        border: 0.1rem solid rgba(v.$primary, 0.5);
+        padding: 3.5rem 2.9rem 2rem 2.9rem;
+        width: 29.7rem;
+        height: auto;
+        margin-top: 2.4rem;
+        &-active {
+          background-color: rgba(v.$primary, 0.1);
+          border: 0;
+        }
+        &-title {
+          font-size: 1.6rem;
+          font-weight: bold;
+        }
+        &-empresa {
+          display: block;
+          padding-top: 0.5rem;
+          font-size: 1.5rem;
+          color: rgba(v.$blanco, 0.65);
+        }
+        &-description {
+          display: block;
+          padding-top: 1.9rem;
+          font-size: 1.4rem;
+          color: rgba(v.$blanco, 0.5);
+        }
+        &-infodate {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-direction: row;
+          padding-top: 2.3rem;
+          flex-wrap: wrap;
+          gap: 1rem;
+          &-duration {
+            color: v.$primary;
+            font-size: 1.2rem;
+            font-weight: bold;
+          }
+          &-fecha {
+            color: v.$primary;
+            font-size: 1.2rem;
+            font-weight: normal;
+          }
+        }
+      }
+    }
+
+    &--arrows {
+      display: flex;
+      justify-content: center;
+      gap: 1.6rem;
+      margin-top: 2.5rem;
+      align-content: center;
+      flex-wrap: nowrap;
+      flex-direction: row;
+      align-items: center;
+      &--links {
+        display: flex;
+        align-content: center;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        padding: 1.4rem;
+        border: 0.1rem solid v.$primary;
+        width: 4.5rem;
+        height: 4.5rem;
+        font-size: 2.5rem;
+        background-color: transparent;
+        color: v.$primary;
+        &:disabled {
+          color: v.$primary;
+          background-color: rgba(v.$primary, 0.1);
+          border: 0.1rem solid rgba(v.$primary, 0.1);
+          cursor: not-allowed;
+          &:hover {
+            color: v.$primary;
+            border: 0.1rem solid rgba(v.$primary, 0.1);
+            background-color: rgba(v.$primary, 0.1);
+          }
+        }
+        &:hover {
+          background-color: rgba(v.$primary, 0.5);
+          border-color: rgba(v.$primary, 0.5);
+          color: rgba(v.$blanco, 0.5);
+          cursor: pointer;
+        }
+        border-radius: 0.8rem;
+      }
+    }
+  }
+
+  @include m.desktop {
+    &__info {
+      &--badge {
+        width: 13rem;
+      }
+      &--title {
+        font-size: 4.8rem;
+        padding-top: 2.4rem;
+      }
+    }
+    &__carreras {
+      padding-top: 6.4rem;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-direction: row;
+      gap: 24.1rem;
+
+      &--works {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        &-title {
+          font-size: 3.2rem;
+          font-weight: 900;
+        }
+        &-description {
+          padding-top: 0.7rem;
+          font-size: 2.4rem;
+          color: rgba(v.$blanco, 0.5);
+        }
+
+        &-cards {
+          border-radius: 0.8rem;
+          border: 0.1rem solid rgba(v.$primary, 0.5);
+          padding: 3.5rem 2.9rem 2rem 2.9rem;
+          width: 58rem;
+          height: auto;
+          margin-top: 6.4rem;
+          &-active {
+            background-color: rgba(v.$primary, 0.1);
+            border: 0;
+          }
+          &-title {
+            font-size: 2rem;
+            font-weight: bold;
+          }
+          &-empresa {
+            display: block;
+            padding-top: 0.5rem;
+            font-size: 1.7rem;
+            color: rgba(v.$blanco, 0.65);
+          }
+          &-description {
+            display: block;
+            padding-top: 1.9rem;
+            font-size: 1.6rem;
+            color: rgba(v.$blanco, 0.5);
+          }
+          &-infodate {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: row;
+            padding-top: 2.3rem;
+            &-duration {
+              color: v.$primary;
+              font-size: 1.8rem;
+              font-weight: bold;
+            }
+            &-fecha {
+              color: v.$primary;
+              font-size: 1.8rem;
+              font-weight: normal;
+            }
+          }
+        }
+      }
+
+      &--academys {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding-top: 0;
+        &-title {
+          font-size: 3.2rem;
+          font-weight: 900;
+        }
+        &-description {
+          padding-top: 0.7rem;
+          font-size: 2.4rem;
+          color: rgba(v.$blanco, 0.5);
+        }
+
+        &-cards {
+          border-radius: 0.8rem;
+          border: 0.1rem solid rgba(v.$primary, 0.5);
+          padding: 3.5rem 2.9rem 2rem 2.9rem;
+          width: 58rem;
+          height: auto;
+          margin-top: 6.4rem;
+          &-active {
+            background-color: rgba(v.$primary, 0.1);
+            border: 0;
+          }
+          &-title {
+            font-size: 2rem;
+            font-weight: bold;
+          }
+          &-empresa {
+            display: block;
+            padding-top: 0.5rem;
+            font-size: 1.7rem;
+            color: rgba(v.$blanco, 0.65);
+          }
+          &-description {
+            padding-top: 1.9rem;
+            font-size: 1.6rem;
+            color: rgba(v.$blanco, 0.5);
+          }
+          &-infodate {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: row;
+            padding-top: 2.3rem;
+            &-duration {
+              color: v.$primary;
+              font-size: 1.8rem;
+              font-weight: bold;
+            }
+            &-fecha {
+              color: v.$primary;
+              font-size: 1.8rem;
+              font-weight: normal;
+            }
+          }
+        }
+      }
+
+      &--arrows {
+        display: flex;
+        justify-content: center;
+        gap: 1.6rem;
+        margin-top: 2.5rem;
+        align-content: center;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        align-items: center;
+        &--links {
+          display: flex;
+          align-content: center;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          justify-content: center;
+          align-items: center;
+          padding: 1.4rem;
+          border: 0.1rem solid v.$primary;
+          width: 4.5rem;
+          height: 4.5rem;
+          font-size: 2.5rem;
+          background-color: transparent;
+          color: v.$primary;
+          &:disabled {
+            color: v.$primary;
+            background-color: rgba(v.$primary, 0.1);
+            border: 0.1rem solid rgba(v.$primary, 0.1);
+            cursor: not-allowed;
+            &:hover {
+              color: v.$primary;
+              border: 0.1rem solid rgba(v.$primary, 0.1);
+              background-color: rgba(v.$primary, 0.1);
+            }
+          }
+          &:hover {
+            background-color: rgba(v.$primary, 0.5);
+            border-color: rgba(v.$primary, 0.5);
+            color: rgba(v.$blanco, 0.5);
+            cursor: pointer;
+          }
+          border-radius: 0.8rem;
+        }
+      }
+    }
+  }
+}

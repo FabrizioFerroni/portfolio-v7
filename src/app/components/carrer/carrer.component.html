@@ -1,1 +1,123 @@
-<p>carrer works!</p>
+<section id="carrera" class="carrera">
+  <div class="carrera__info">
+    <div class="carrera__info--badge">
+      <app-badges title="💼 Carrera"></app-badges>
+    </div>
+    <h2 class="carrera__info--title">Trayectoria hasta aquí</h2>
+  </div>
+  <div class="carrera__carreras">
+    <div class="carrera__carreras--works">
+      <p class="carrera__carreras--works-title">Área profesional</p>
+      <span class="carrera__carreras--works-description"
+        >2016 - Actualmente</span
+      >
+
+      <div
+        class="carrera__carreras--works-cards {{
+          item.actual ? 'carrera__carreras--works-cards-active' : ''
+        }}"
+        *ngFor="let item of work | works : pageWorks : limitWorks"
+      >
+        <h5 class="carrera__carreras--works-cards-title">{{ item.title }}</h5>
+        <span class="carrera__carreras--works-cards-empresa">{{
+          item.empresa
+        }}</span>
+        <p class="carrera__carreras--works-cards-description">
+          {{ item.descripcion }}
+        </p>
+        <div class="carrera__carreras--works-cards-infodate">
+          <span class="carrera__carreras--works-cards-infodate-duration">{{
+            item.duracion
+          }}</span>
+          <span class="carrera__carreras--works-cards-infodate-fecha">
+            {{ item.fecha_desde_hasta }}
+          </span>
+        </div>
+      </div>
+
+      <!-- botones -->
+      <div
+        class="carrera__carreras--arrows"
+        *ngIf="(work | works : pageWorks : limitWorks).length > 0"
+      >
+        <button
+          class="carrera__carreras--arrows--links"
+          (click)="lastPageW()"
+          [disabled]="isFirstPageW()"
+          aria-label="Anterior"
+          data-tts="left"
+        >
+          &lt;
+        </button>
+        <button
+          class="carrera__carreras--arrows--links"
+          (click)="nextPageW()"
+          [disabled]="isLastPageW()"
+          aria-label="Siguiente"
+          data-tts="right"
+        >
+          &gt;
+        </button>
+      </div>
+      <!-- fin botones -->
+    </div>
+
+    <div class="carrera__carreras--academys">
+      <p class="carrera__carreras--academys-title">Académico</p>
+      <span class="carrera__carreras--academys-description"
+        >2014 - Actualmente</span
+      >
+
+      <div
+        class="carrera__carreras--academys-cards {{
+          item.actual ? 'carrera__carreras--academys-cards-active' : ''
+        }}"
+        *ngFor="let item of academy | academys : pageAcademys : limitAcademys"
+      >
+        <h5 class="carrera__carreras--academys-cards-title">
+          {{ item.title }}
+        </h5>
+        <span class="carrera__carreras--academys-cards-empresa">{{
+          item.institucion
+        }}</span>
+        <p class="carrera__carreras--academys-cards-description">
+          {{ item.descripcion }}
+        </p>
+        <div class="carrera__carreras--academys-cards-infodate">
+          <span class="carrera__carreras--academys-cards-infodate-duration">{{
+            item.duracion
+          }}</span>
+          <span class="carrera__carreras--academys-cards-infodate-fecha">
+            {{ item.fecha_desde_hasta }}
+          </span>
+        </div>
+      </div>
+
+      <!-- botones -->
+      <div
+        class="carrera__carreras--arrows"
+        *ngIf="(academy | academys : pageAcademys : limitAcademys).length > 0"
+      >
+        <button
+          class="carrera__carreras--arrows--links"
+          (click)="lastPageA()"
+          [disabled]="isFirstPageA()"
+          aria-label="Anterior"
+          data-tts="left"
+        >
+          &lt;
+        </button>
+        <button
+          class="carrera__carreras--arrows--links"
+          (click)="nextPageA()"
+          [disabled]="isLastPageA()"
+          aria-label="Siguiente"
+          data-tts="right"
+        >
+          &gt;
+        </button>
+      </div>
+      <!-- fin botones -->
+    </div>
+  </div>
+</section>
