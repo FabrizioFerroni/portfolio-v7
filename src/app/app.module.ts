@@ -20,6 +20,7 @@ import { ProyectsPipe } from './pipes/proyects.pipe';
 import { CertificatesPipe } from './pipes/certificates.pipe';
 import { WorksPipe } from './pipes/works.pipe';
 import { AcademysPipe } from './pipes/academys.pipe';
+import { TestimonialsPipe } from './pipes/testimonials.pipe';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { AcademysPipe } from './pipes/academys.pipe';
     CertificatesPipe,
     WorksPipe,
     AcademysPipe,
+    TestimonialsPipe,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],

@@ -144,7 +144,8 @@
   }
 
   @include m.desktop {
-    margin: 0 14rem 5rem 14rem;
+    // margin: 0 14rem 5rem 14rem;
+    margin: 15rem 14rem;
     &__info {
       flex-direction: row;
       &--title {
@@ -165,7 +166,7 @@
       margin: 2.9rem 0;
       &--cards {
         justify-content: space-between;
-        margin: 0 3rem;
+        // margin: 0 3rem;
       }
     }
   }

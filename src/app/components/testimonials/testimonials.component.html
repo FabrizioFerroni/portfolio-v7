@@ -1,1 +1,68 @@
-<p>testimonials works!</p>
+<section id="testimonios" class="testimonios">
+  <div class="testimonios__info">
+    <div class="testimonios__info--titles">
+      <div class="testimonios__info--badge">
+        <app-badges title="💬 Recomendaciones"></app-badges>
+      </div>
+      <h2 class="testimonios__info--title">Esto es lo que dicen:</h2>
+    </div>
+
+    <div
+      class="testimonios__info--arrows"
+      *ngIf="(testimonial | testimonials : page : limit).length > 0"
+    >
+      <button
+        class="testimonios__info--arrows--links"
+        (click)="lastPage()"
+        [disabled]="isFirstPage()"
+        aria-label="Anterior"
+        data-tts="up"
+      >
+        &lt;
+      </button>
+      <button
+        class="testimonios__info--arrows--links"
+        (click)="nextPage()"
+        [disabled]="isLastPage()"
+        aria-label="Siguiente"
+        data-tts="up"
+      >
+        &gt;
+      </button>
+    </div>
+  </div>
+  <div class="testimonios__data">
+    <div
+      class="testimonios__data--cards"
+      *ngFor="let item of testimonial | testimonials : page : limit"
+    >
+      <img
+        src="../../../assets/img/Quotes.svg"
+        alt=""
+        class="testimonios__data--cards-quotes"
+      />
+
+      <div class="testimonios__data--cards-data">
+        <span class="testimonios__data--cards-data-descripcion">{{
+          item.descripcion
+        }}</span>
+
+        <div class="testimonios__data--cards-data-client">
+          <img
+            [src]="item.imagen"
+            [alt]="item.cliente"
+            class="testimonios__data--cards-data-client-img"
+          />
+          <div class="testimonios__data--cards-data-client-data">
+            <p class="testimonios__data--cards-data-client-data-p">
+              {{ item.cliente }}
+            </p>
+            <span class="testimonios__data--cards-data-client-data-span">{{
+              item.titulo
+            }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

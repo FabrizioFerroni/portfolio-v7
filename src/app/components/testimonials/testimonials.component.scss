@@ -1,0 +1,283 @@
+@use "../../../assets/scss/base/variables" as v;
+@use "../../../assets/scss/base/mixins" as m;
+
+.testimonios {
+  margin: 6rem 3rem;
+  display: flex;
+  flex-direction: column;
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    // align-items: end;
+
+    &--badge {
+      width: 17.5rem;
+    }
+
+    &--titles {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    &--title {
+      font-size: 2.4rem;
+      font-weight: 900;
+      padding-top: 1.6rem;
+      margin: 0;
+    }
+    &--description {
+      text-align: center;
+      padding-top: 1.8rem;
+      display: block;
+      font-size: 1.4rem;
+      color: rgba(v.$blanco, 0.5);
+    }
+
+    &--arrows {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1.6rem;
+      margin-top: 2.5rem;
+      &--links {
+        display: flex;
+        align-content: center;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        padding: 1.4rem;
+        border: 0.1rem solid v.$primary;
+        width: 4.5rem;
+        height: 4.5rem;
+        font-size: 2.5rem;
+        background-color: transparent;
+        color: v.$primary;
+        &:disabled {
+          color: v.$primary;
+          background-color: rgba(v.$primary, 0.1);
+          // border: 0.1rem solid rgba(v.$primary, 0.1);
+          border: 0;
+          cursor: not-allowed;
+          &:hover {
+            color: v.$primary;
+            border: 0.1rem solid rgba(v.$primary, 0.1);
+            background-color: rgba(v.$primary, 0.1);
+          }
+        }
+        &:hover {
+          background-color: rgba(v.$primary, 0.5);
+          border-color: rgba(v.$primary, 0.5);
+          color: rgba(v.$blanco, 0.5);
+          cursor: pointer;
+        }
+        border-radius: 0.8rem;
+      }
+    }
+  }
+
+  &__data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 7rem;
+    &--cards {
+      margin-top: 6.4rem;
+      border-radius: 0.8rem;
+      border: 0.1rem solid rgba(v.$primary, 0.5);
+      padding: 3rem 3.4rem;
+      width: 80rem;
+      height: auto;
+
+      &:nth-child(even) {
+        background-color: rgba(v.$primary, 0.1);
+        border: 0;
+      }
+      &-quotes {
+        width: 1.9rem;
+        height: 1.9rem;
+      }
+      &-data {
+        padding-top: 0.7rem;
+        &-descripcion {
+          font-size: 1.4rem;
+          font-weight: normal;
+          color: rgba(v.$blanco, 0.5);
+        }
+
+        &-client {
+          padding-top: 2.3rem;
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          align-items: center;
+          &-img {
+            width: 3.8rem;
+            height: 3.8rem;
+          }
+          &-data {
+            padding-left: 1.1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 0.4rem;
+            &-p {
+              font-size: 1.2rem;
+              font-weight: bold;
+            }
+            &-span {
+              font-weight: bold;
+              font-size: 1.2rem;
+              color: rgba(v.$primary, 0.5);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include m.desktop {
+    // margin: 6rem 6rem;
+    margin: 15rem 14rem;
+    &__info {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: end;
+
+      &--badge {
+        width: 23.5rem;
+      }
+
+      &--titles {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+
+      &--title {
+        font-size: 4.8rem;
+        font-weight: 900;
+        padding-top: 2.4rem;
+      }
+      &--description {
+        text-align: center;
+        padding-top: 1.8rem;
+        display: block;
+        font-size: 1.4rem;
+        color: rgba(v.$blanco, 0.5);
+      }
+
+      &--arrows {
+        display: flex;
+        justify-content: flex-end;
+        gap: 1.6rem;
+        margin-top: 0rem;
+        // margin-bottom: 3.5rem;
+        &--links {
+          display: flex;
+          align-content: center;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          justify-content: center;
+          align-items: center;
+          padding: 1.4rem;
+          border: 0.1rem solid v.$primary;
+          width: 4.5rem;
+          height: 4.5rem;
+          font-size: 2.5rem;
+          background-color: transparent;
+          color: v.$primary;
+          &:disabled {
+            color: v.$primary;
+            background-color: rgba(v.$primary, 0.1);
+            border: 0.1rem solid rgba(v.$primary, 0.1);
+            cursor: not-allowed;
+            &:hover {
+              color: v.$primary;
+              border: 0.1rem solid rgba(v.$primary, 0.1);
+              background-color: rgba(v.$primary, 0.1);
+            }
+          }
+          &:hover {
+            background-color: rgba(v.$primary, 0.5);
+            border-color: rgba(v.$primary, 0.5);
+            color: rgba(v.$blanco, 0.5);
+            cursor: pointer;
+          }
+          border-radius: 0.8rem;
+        }
+      }
+    }
+
+    &__data {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      gap: 7rem;
+      &--cards {
+        margin-top: 6.4rem;
+        border-radius: 0.8rem;
+        border: 0.1rem solid rgba(v.$primary, 0.5);
+        padding: 3rem 3.4rem;
+        width: 50rem;
+        height: auto;
+
+        &:nth-child(even) {
+          background-color: rgba(v.$primary, 0.1);
+          border: 0;
+        }
+        &-quotes {
+          width: 3.2rem;
+          height: 3.2rem;
+        }
+        &-data {
+          padding-top: 0.844rem;
+          &-descripcion {
+            font-size: 1.6rem;
+            font-weight: normal;
+            color: rgba(v.$blanco, 0.5);
+          }
+
+          &-client {
+            padding-top: 3.2rem;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            &-img {
+              width: 6.4rem;
+              height: 6.4rem;
+            }
+            &-data {
+              padding-left: 1.1rem;
+              display: flex;
+              flex-direction: column;
+              justify-content: flex-start;
+              align-items: flex-start;
+              gap: 0.4rem;
+              &-p {
+                font-size: 2rem;
+                font-weight: bold;
+              }
+              &-span {
+                font-weight: bold;
+                font-size: 1.6rem;
+                color: rgba(v.$primary, 0.5);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

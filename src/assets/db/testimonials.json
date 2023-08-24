@@ -1,0 +1,40 @@
+{
+  "testimonials": [
+    {
+      "descripcion": "Fabrizio siempre está estudiando y aprendiendo, buscando mejorar lo que hace. Esta es tu mejor cualidad. Siempre está en la búsqueda de sus objetivos, con enfoque y organización. Además, técnicamente, en lo que se propone, lo hace bien.",
+      "cliente": "Romário Lima",
+      "titulo": "Ingeniero informático",
+      "imagen": "../../../assets/img/testimonials/client.png"
+    },
+    {
+      "descripcion": "Fabrizio siempre está estudiando y aprendiendo, buscando mejorar lo que hace. Esta es tu mejor cualidad. Siempre está en la búsqueda de sus objetivos, con enfoque y organización. Además, técnicamente, en lo que se propone, lo hace bien.",
+      "cliente": "Romário Lima",
+      "titulo": "Ingeniero informático",
+      "imagen": "../../../assets/img/testimonials/client.png"
+    },
+    {
+      "descripcion": "Fabrizio siempre está estudiando y aprendiendo, buscando mejorar lo que hace. Esta es tu mejor cualidad. Siempre está en la búsqueda de sus objetivos, con enfoque y organización. Además, técnicamente, en lo que se propone, lo hace bien.",
+      "cliente": "Romário Lima",
+      "titulo": "Ingeniero informático",
+      "imagen": "../../../assets/img/testimonials/client.png"
+    },
+    {
+      "descripcion": "Fabrizio siempre está estudiando y aprendiendo, buscando mejorar lo que hace. Esta es tu mejor cualidad. Siempre está en la búsqueda de sus objetivos, con enfoque y organización. Además, técnicamente, en lo que se propone, lo hace bien.",
+      "cliente": "Romário Lima",
+      "titulo": "Ingeniero informático",
+      "imagen": "../../../assets/img/testimonials/client.png"
+    },
+    {
+      "descripcion": "Fabrizio siempre está estudiando y aprendiendo, buscando mejorar lo que hace. Esta es tu mejor cualidad. Siempre está en la búsqueda de sus objetivos, con enfoque y organización. Además, técnicamente, en lo que se propone, lo hace bien.",
+      "cliente": "Romário Lima",
+      "titulo": "Ingeniero informático",
+      "imagen": "../../../assets/img/testimonials/client.png"
+    },
+    {
+      "descripcion": "Fabrizio siempre está estudiando y aprendiendo, buscando mejorar lo que hace. Esta es tu mejor cualidad. Siempre está en la búsqueda de sus objetivos, con enfoque y organización. Además, técnicamente, en lo que se propone, lo hace bien.",
+      "cliente": "Romário Lima",
+      "titulo": "Ingeniero informático",
+      "imagen": "../../../assets/img/testimonials/client.png"
+    }
+  ]
+}

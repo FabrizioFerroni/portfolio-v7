@@ -206,6 +206,7 @@
   }
 
   @include m.desktop {
+    margin: 15rem 14rem;
     &__info {
       &--badge {
         width: 13rem;
@@ -221,7 +222,8 @@
       justify-content: center;
       align-items: flex-start;
       flex-direction: row;
-      gap: 24.1rem;
+      // gap: 24.1rem;
+      gap: 5rem;
 
       &--works {
         display: flex;

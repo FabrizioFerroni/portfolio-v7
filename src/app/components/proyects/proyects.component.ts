@@ -30,6 +30,22 @@ export class ProyectsComponent implements OnInit {
     this.getAllProyects();
   }
 
+  get(): Observable<Proyects> {
+    return this.http.get<Proyects>('../../../assets/db/proyects.json');
+  }
+
+  getAllProyects(): void {
+    this.get().subscribe(
+      (data: Proyects) => {
+        this.projects = data;
+        this.project = data.proyects;
+      },
+      (err) => {
+        console.error(err);
+      }
+    );
+  }
+
   get totalItems(): number {
     return this.project.length;
   }
@@ -43,22 +59,6 @@ export class ProyectsComponent implements OnInit {
   }
   isLastPage(): boolean {
     return this.page >= this.totalPages - 1;
-  }
-
-  get(): Observable<Proyects> {
-    return this.http.get<Proyects>('../../../assets/db/proyects.json');
-  }
-
-  getAllProyects(): void {
-    this.get().subscribe(
-      (data) => {
-        this.projects = data;
-        this.project = data.proyects;
-      },
-      (err) => {
-        console.error(err);
-      }
-    );
   }
 
   nextPage(): void {
