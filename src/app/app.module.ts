@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+// import { FileSaverModule } from 'ngx-filesaver';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -21,6 +23,9 @@ import { CertificatesPipe } from './pipes/certificates.pipe';
 import { WorksPipe } from './pipes/works.pipe';
 import { AcademysPipe } from './pipes/academys.pipe';
 import { TestimonialsPipe } from './pipes/testimonials.pipe';
+import { interceptorProvider } from './interceptors/token-int.interceptor';
+import { TruncatePipe } from './pipes/truncate.pipe';
+import { LazyImgDirectiveDirective } from './directives/lazy-img-directive.directive';
 
 @NgModule({
   declarations: [
@@ -43,9 +48,13 @@ import { TestimonialsPipe } from './pipes/testimonials.pipe';
     WorksPipe,
     AcademysPipe,
     TestimonialsPipe,
+    TruncatePipe,
+    LazyImgDirectiveDirective,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
-  providers: [],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  providers: [
+    interceptorProvider
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,5 +1,5 @@
 export interface Works {
-  works: Work[];
+  trabajos: Work[];
 }
 
 export interface Work {

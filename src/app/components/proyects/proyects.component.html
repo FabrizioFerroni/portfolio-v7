@@ -82,7 +82,7 @@
       >
         <div class="proyectos__data--cards-card-live">
           <p class="proyectos__data--cards-card-live-title">
-            {{ item.title }}
+            {{ item.titulo }}
             <a
               [href]="item.url_github"
               title="Ir al repositorio"
@@ -98,7 +98,7 @@
               [href]="item.url_proyecto"
               class="proyectos__data--cards-card-live-links-online"
               *ngIf="item.is_online"
-              title="Ir al proyecto"
+              data-tts="up" aria-label="Ir al proyecto"
               target="_blank"
             >
               <svg
@@ -128,7 +128,7 @@
           </span>
         </div>
         <span class="proyectos__data--cards-card-description">{{
-          item.description
+          item.descripcion
         }}</span>
         <div class="proyectos__data--cards-card-tags">
           <span
@@ -139,19 +139,27 @@
           </span>
         </div>
         <img
-          [src]="item.image"
-          [alt]="item.title"
+          [src]="item.imagen"
+          [alt]="item.titulo"
           class="proyectos__data--cards-card-img"
         />
       </div>
     </div>
     <div class="proyectos__data--cards-card--np">
+      <div class="loading-proyects {{ class }}">
+        <div class="loadingio-spinner-rolling-gtg2h2xv46o">
+          <div class="ldio-hl7hapmg3r9">
+            <div></div>
+          </div>
+        </div>
+        <p>Espere por favor, estamos cargando los proyectos...</p>
+      </div>
       <div
         *ngIf="(project | proyects : page : limit : category).length < 1"
-        class="proyectos__data--cards-card--np-noproyect"
+        class="proyectos__data--cards-card--np-noproyect {{ class_card }}"
       >
         <p class="proyectos__data--cards-card--np-noproyect-p">
-          ⚠️ No se han encontrado proyectos.
+          ⚠️ No se han encontrado proyectos para el {{ category }}.
         </p>
         <a
           href="https://github.com/FabrizioFerroni"
@@ -168,9 +176,9 @@
     >
       <a
         class="proyectos__data--more--links"
-        href="#"
+        href="https://github.com/FabrizioFerroni"
         target="_blank"
-        rel="noreferer noopener"
+        rel="noreferer noopener nofollow"
         >Ver más proyectos en Github <i class="uil uil-arrow-right"></i>
       </a>
     </div>

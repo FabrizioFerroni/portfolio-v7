@@ -1,7 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Content, Proyects } from '@app/interfaces/Projects';
-import { Observable } from 'rxjs';
+import { Proyect, Proyects } from '@app/interfaces/Projects';
+import { ApiService } from '@app/service/api.service';
 
 @Component({
   selector: 'app-proyects',
@@ -10,12 +9,15 @@ import { Observable } from 'rxjs';
 })
 export class ProyectsComponent implements OnInit {
   projects!: Proyects;
-  project: Content[] = [];
+  project: Proyect[] = [];
   page!: number;
   limit!: number;
   category!: string;
   activeCategory!: string;
-  constructor(private http: HttpClient) {
+  class: string = 'flex';
+  class_card: string = 'hidden';
+
+  constructor(private apiService: ApiService) {
     this.category = 'fullstack';
     this.activeCategory = 'fullstack';
 
@@ -27,23 +29,21 @@ export class ProyectsComponent implements OnInit {
     }
   }
   ngOnInit(): void {
-    this.getAllProyects();
+    this.getProyectos();
   }
 
-  get(): Observable<Proyects> {
-    return this.http.get<Proyects>('../../../assets/db/proyects.json');
-  }
-
-  getAllProyects(): void {
-    this.get().subscribe(
-      (data: Proyects) => {
+  getProyectos(): void {
+    this.apiService.getProyects().subscribe({
+      next: (data: Proyects) => {
+        this.class = 'hidden';
+        this.class_card = 'flex';
         this.projects = data;
-        this.project = data.proyects;
+        this.project = data.proyectos;
       },
-      (err) => {
+      error: (err) => {
         console.error(err);
-      }
-    );
+      },
+    });
   }
 
   get totalItems(): number {
@@ -84,5 +84,7 @@ export class ProyectsComponent implements OnInit {
   changeCategory(category: string): void {
     this.category = category;
     this.activeCategory = category;
+    this.class = 'hidden';
+    this.class_card = 'flex';
   }
 }

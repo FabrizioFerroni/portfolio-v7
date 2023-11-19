@@ -1,20 +1,15 @@
 export interface Proyects {
-  proyects: Content[];
+  proyectos: Proyect[];
 }
 
-export interface Content {
-  title: string;
-  description: string;
-  tags: Tag[];
-  image: string;
+export interface Proyect {
+  titulo: string;
+  descripcion: string;
+  tags: string[];
+  imagen: string;
   is_online: boolean;
   is_private: boolean;
   url_proyecto: string;
   url_github: string;
-  category: string;
-}
-
-export enum Tag {
-  Online = 'Online',
-  Typescript = 'Typescript',
+  categoria: string;
 }

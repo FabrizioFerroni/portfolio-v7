@@ -1,8 +1,7 @@
-import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Work, Works } from '@app/interfaces/Works';
 import { Academy, Academys } from '@app/interfaces/Academys';
+import { ApiService } from '@app/service/api.service';
 
 @Component({
   selector: 'app-carrer',
@@ -21,7 +20,11 @@ export class CarrerComponent implements OnInit {
 
   pageAcademys!: number;
   limitAcademys!: number;
-  constructor(private http: HttpClient) {
+
+  class: string = 'flex';
+  class_type: string = 'hidden';
+
+  constructor(private apiService: ApiService) {
     this.pageWorks = 0;
     if (this.isMobile()) {
       this.limitWorks = 1;
@@ -37,40 +40,36 @@ export class CarrerComponent implements OnInit {
     }
   }
   ngOnInit(): void {
-    this.getAllWorks();
-    this.getAllAcademys();
+    this.getEstudios();
+    this.getTrabajos();
   }
 
-  getWorks(): Observable<Works> {
-    return this.http.get<Works>('../../../assets/db/works.json');
-  }
-
-  getAcademys(): Observable<Academys> {
-    return this.http.get<Academys>('../../../assets/db/academys.json');
-  }
-
-  getAllWorks(): void {
-    this.getWorks().subscribe(
-      (data: Works) => {
+  getTrabajos(): void {
+    this.apiService.getWorks().subscribe({
+      next: (data: Works) => {
         this.works = data;
-        this.work = data.works;
+        this.work = data.trabajos;
+        this.class = 'hidden';
+        this.class_type = 'flex';
       },
-      (err) => {
+      error: (err) => {
         console.error(err);
-      }
-    );
+      },
+    });
   }
 
-  getAllAcademys(): void {
-    this.getAcademys().subscribe(
-      (data: Academys) => {
+  getEstudios(): void {
+    this.apiService.getAcademys().subscribe({
+      next: (data: Academys) => {
         this.academys = data;
-        this.academy = data.academys;
+        this.academy = data.estudios;
+        this.class = 'hidden';
+        this.class_type = 'flex';
       },
-      (err) => {
+      error: (err) => {
         console.error(err);
-      }
-    );
+      },
+    });
   }
 
   get totalItemsW(): number {

@@ -1,8 +1,65 @@
 @use "../../../assets/scss/base/variables" as v;
 @use "../../../assets/scss/base/mixins" as m;
+
+
+@keyframes ldio-hl7hapmg3r9 {
+  0% { transform: translate(-50%,-50%) rotate(0deg); }
+  100% { transform: translate(-50%,-50%) rotate(360deg); }
+}
+
+.ldio-hl7hapmg3r9 div {
+  position: absolute;
+  width: 2.7rem;
+  height: 2.7rem;
+  border: .7rem solid rgba(v.$primary, 0.5);
+  border-top-color: rgba(v.$blanco, 0.5);
+  border-radius: 50%;
+}
+
+.ldio-hl7hapmg3r9 div {
+  animation: ldio-hl7hapmg3r9 4s linear infinite;
+  top: 3rem;
+  left: 3rem
+}
+
+.loadingio-spinner-rolling-gtg2h2xv46o {
+  width: 6rem;
+  height: 6rem;
+  display: inline-block;
+  overflow: hidden;
+  background: none;
+}
+
+.ldio-hl7hapmg3r9 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateZ(0) scale(1);
+  backface-visibility: hidden;
+  transform-origin: 0 0; /* see note above */
+}
+
+.ldio-hl7hapmg3r9 div { box-sizing: content-box; }
+
+.loading-proyects{
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2.5rem;
+  border: .1rem solid rgba(v.$primary, 0.1);
+  border-radius: 1.6rem;
+  padding: 3.5rem;
+  width: 35rem;
+  background-color: rgba(v.$primary, 0.1);
+  p{
+    text-align: center;
+    line-height: 1.5;
+    color: rgba(v.$blanco, 0.5);
+  }
+}
+
 .proyectos {
   margin: 7rem 2.4rem;
-  display: flex;
   flex-direction: column;
   // justify-content: center;
   // align-items: center;
@@ -127,7 +184,7 @@
         border-radius: 1.6rem;
         &--np {
           &-noproyect {
-            display: flex;
+            // display: flex;
             flex-direction: column;
             gap: 1.5rem;
             justify-content: center;
@@ -212,8 +269,15 @@
 
   @include m.desktop {
     margin: 15rem 14rem;
-    display: flex;
     flex-direction: column;
+
+    .loading-proyects{
+      gap: 1rem;
+      padding: 5rem;
+      width: 60rem;
+    }
+
+
     &__info {
       flex-direction: row;
       justify-content: space-between;
@@ -285,7 +349,7 @@
             justify-content: center;
             align-items: center;
             &-noproyect {
-              display: flex;
+              // display: flex;
               flex-direction: column;
               gap: 1.5rem;
               justify-content: center;

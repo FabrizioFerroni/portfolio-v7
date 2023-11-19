@@ -1,7 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Testimonial, Testimonials } from '@app/interfaces/Testimonials';
-import { Observable } from 'rxjs';
+import { Testimonial,  Testimonials } from '@app/interfaces/Testimonials';
+import { ApiService } from '@app/service/api.service';
 
 @Component({
   selector: 'app-testimonials',
@@ -14,7 +13,7 @@ export class TestimonialsComponent implements OnInit {
   page!: number;
   limit!: number;
 
-  constructor(private http: HttpClient) {
+  constructor(private apiService: ApiService) {
     this.page = 0;
     if (this.isMobile()) {
       this.limit = 1;
@@ -24,23 +23,19 @@ export class TestimonialsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getAllTestimonials();
+    this.getTestimonios();
   }
 
-  get(): Observable<Testimonials> {
-    return this.http.get<Testimonials>('../../../assets/db/testimonials.json');
-  }
-
-  getAllTestimonials(): void {
-    this.get().subscribe(
-      (data: Testimonials) => {
+  getTestimonios():void{
+    this.apiService.getTestimonials().subscribe({
+      next: (data: Testimonials) => {
         this.testimonials = data;
-        this.testimonial = data.testimonials;
+        this.testimonial = data.testimonios;
       },
-      (err) => {
+      error: (err) => {
         console.error(err);
       }
-    );
+    })
   }
 
   get totalItems(): number {

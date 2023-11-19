@@ -46,6 +46,20 @@
           font-size: 4.4rem;
           color: rgba(v.$primary, 0.5);
         }
+
+        // &:hover{
+        //   i{
+        //     color: v.$blanco;
+        //   }
+        // }
+
+        span {
+          &:hover {
+            i {
+              color: rgba(v.$blanco, 0.8);
+            }
+          }
+        }
       }
     }
   }

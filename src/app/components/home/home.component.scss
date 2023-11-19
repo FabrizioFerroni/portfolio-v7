@@ -1,6 +1,26 @@
 @use "../../../assets/scss/base/variables" as v;
 @use "../../../assets/scss/base/mixins" as m;
 
+.hidden{
+  display: none;
+}
+
+.flex{
+  display: flex;
+}
+
+.toast-inline{
+  font-size: 1.3rem;
+
+  &--success{
+    color: v.$verde;
+  }
+
+  &--error{
+    color: v.$rojo;
+  }
+}
+
 .inicio {
   display: flex;
   @include m.contenedor;
@@ -53,8 +73,11 @@
     align-items: center;
     gap: 1.5rem;
     &--download {
+      background-color: transparent;
+      border: none;
       color: rgba(v.$primary, 0.5);
       &:hover {
+        cursor: pointer;
         color: rgba(v.$blanco, 0.5);
       }
     }

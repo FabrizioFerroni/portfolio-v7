@@ -26,11 +26,13 @@
           <a
             href="mailto:hola@fabriziodev.ar"
             class="contactame__data--info-container-enlaces-a"
-            id="copyMail"
+            id="copyEmail"
+            #copyEmail
             >hola@fabriziodev.ar</a
           >
           <span
             class="contactame__data--info-container-enlaces-copy"
+            (click)="copyToClipboard(extractEmailAddress(copyEmail.href))"
             data-tts="up"
             aria-label="Copiar al portapapel"
             ><i class="uil uil-copy"></i
@@ -59,6 +61,7 @@
             href="https://www.linkedin.com/in/fabrizio-ferroni/"
             class="contactame__data--info-container-enlaces-a"
             id="copyLinkedin"
+            #copyLinkedin
             target="_blank"
             rel="noopener nofollow noreferrer"
             >In/FabrizioFerroni</a
@@ -66,6 +69,7 @@
           <span
             class="contactame__data--info-container-enlaces-copy"
             data-tts="up"
+            (click)="copyToClipboard(copyLinkedin.href)"
             aria-label="Copiar al portapapel"
             ><i class="uil uil-copy"></i
           ></span>
@@ -93,6 +97,7 @@
             href="https://github.com/FabrizioFerroni"
             class="contactame__data--info-container-enlaces-a"
             id="copyGit"
+            #copyGit
             target="_blank"
             rel="noopener nofollow noreferrer"
             >FabrizioFerroni</a
@@ -100,6 +105,7 @@
           <span
             class="contactame__data--info-container-enlaces-copy"
             data-tts="up"
+            (click)="copyToClipboard(copyGit.href)"
             aria-label="Copiar al portapapel"
             ><i class="uil uil-copy"></i>
             <!-- <i class="uil uil-check"></i> -->
@@ -109,7 +115,7 @@
       <!-- Fin Github -->
     </div>
     <div class="contactame__data--forms">
-      <form method="POST" class="contactame__data--forms-form">
+      <form method="POST" #form="ngForm" class="contactame__data--forms-form" id="contactForm" (submit)="contacto(form)">
         <span class="contactame__data--forms-form-valid">
           <i class="uil uil-check"></i> Se envio el mensaje con éxito. Le
           responderé a la brevedad
@@ -133,6 +139,7 @@
                   type="text"
                   name="nombre"
                   id="nombre"
+                  [(ngModel)]="contactoForm.nombre"
                   placeholder="Ingrese su nombre"
                   required
                   autocomplete="off"
@@ -150,6 +157,7 @@
                   type="text"
                   name="apellido"
                   id="apellido"
+                  [(ngModel)]="contactoForm.apellido"
                   placeholder="Ingrese su apellido"
                   required
                   autocomplete="off"
@@ -168,6 +176,7 @@
                 <input
                   type="email"
                   name="email"
+                  [(ngModel)]="contactoForm.email"
                   id="email"
                   placeholder="Ingrese su correo electrónico"
                   required
@@ -186,6 +195,8 @@
                   type="tel"
                   name="telefono"
                   id="telefono"
+                  onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
+                  [(ngModel)]="contactoForm.telefono"
                   placeholder="Ingrese su número de telefono"
                   required
                   autocomplete="off"
@@ -204,6 +215,7 @@
                 type="text"
                 name="asunto"
                 id="asunto"
+                [(ngModel)]="contactoForm.asunto"
                 required
                 placeholder="Indique un asunto de su consulta"
                 autocomplete="off"
@@ -220,6 +232,7 @@
               <textarea
                 name="mensaje"
                 id="mensaje"
+                [(ngModel)]="contactoForm.mensaje"
                 placeholder="Deje aqui su mensaje"
               ></textarea>
             </div>
@@ -229,11 +242,21 @@
             >
           </div>
           <div class="contactame__data--forms-form-button">
-            <button type="submit" disabled>
+            <button type="submit" *ngIf="!btn_load" [disabled]="form.invalid">
               <i class="uil uil-message"></i>
-
               Enviar
             </button>
+
+            <button type="button" *ngIf="btn_load" [disabled]="!form.valid" class="disabled flex boton--loading">
+              <div class="loadingio-spinner-rolling-j5etwe7pi5k">
+                <div class="ldio-s45l4gig2e">
+                  <div></div>
+                </div>
+              </div>
+              {{ mensaje_btn }}
+            </button>
+
+            <span class="{{ display }} contactame__data--forms-form-message contactame__data--forms-form-message-{{ type }}">{{ mensaje }}</span>
           </div>
         </div>
       </form>

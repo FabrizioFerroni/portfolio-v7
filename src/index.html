@@ -27,11 +27,29 @@
       href="https://cdn.jsdelivr.net/npm/@iconscout/unicons@4.0.8/css/line.min.css"
     />
 
+
     <!-- Tooltips -->
     <link
       href="https://cdn.jsdelivr.net/npm/@zkreations/tooltips@4/tooltips.min.css"
       rel="stylesheet"
     />
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Obtén todos los elementos a que tengan el atributo 'title'
+        let elementosAll = document.querySelectorAll('[title]');
+        let elementosAnclas = document.querySelectorAll('a[title]');
+
+        // Itera sobre los elementos y elimina el atributo 'title'
+        elementosAll.forEach(function(elemento) {
+          elemento.removeAttribute('title');
+        });
+
+        elementosAnclas.forEach(function(elemento) {
+          elemento.removeAttribute('title');
+        });
+      });
+    </script>
   </head>
   <body>
     <app-root></app-root>

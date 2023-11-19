@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent {
+  anioNacimiento: number = 1996;
 
+  calcularEdad(): number {
+    const añoActual = new Date().getFullYear();
+    return añoActual - this.anioNacimiento;
+  }
 }

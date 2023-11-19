@@ -22,13 +22,28 @@
   <!--test1-->
 
   <div class="inicio__download">
-    <a
-      href="#"
+    <button
+      (click)="downloadCv(cv)"
+      *ngIf="!cv.btn_load"
       class="inicio__download--download"
       data-tts="up"
       aria-label="Descargar mi cv"
-      >Descargar CV <i class="uil uil-import"></i
-    ></a>
+    >
+      Descargar CV <i class="uil uil-import"></i>
+    </button>
+    <button
+      *ngIf="cv.btn_load"
+      class="inicio__download--download disabled"
+      data-tts="up"
+      aria-label="Descargar mi cv"
+      disabled
+    >
+      {{ cv.mensaje_btn }} <i class="uil uil-import"></i>
+    </button>
+
+    <div class="{{ class_dcv }} toast-inline toast-inline--{{ type_dcv }}">
+      {{ msg_resp }}
+    </div>
     <a
       href="#contactame"
       class="inicio__download--contact"

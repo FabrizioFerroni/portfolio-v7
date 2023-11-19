@@ -38,12 +38,12 @@
         *ngFor="let item of certificate | certificates : page : limit"
       >
         <img
-          [src]="item.image"
-          [alt]="item.title"
+          [src]="item.imagen"
+          [alt]="item.titulo"
           class="certificados__data--cards-card-img"
         />
         <div class="certificados__data--cards-card-1">
-          <p class="certificados__data--cards-card-1-p">{{ item.title }}</p>
+          <p class="certificados__data--cards-card-1-p" title="{{ item.titulo }}">{{ item.titulo | truncate: [28, '...'] }}</p>
           <div class="certificados__data--cards-card-1-tags">
             <span
               *ngFor="let tag of item.tags"
@@ -55,17 +55,45 @@
         </div>
         <div class="certificados__data--cards-card-2">
           <span class="certificados__data--cards-card-2-inst">
-            {{ item.academy }}
+            {{ item.academia }}
           </span>
           <span class="certificados__data--cards-card-2-fecha">
-            {{ item.range_fecha }}
+            {{ item.rango_fecha }}
           </span>
         </div>
         <div class="certificados__data--cards-card-download">
-          <button class="certificados__data--cards-card-download-button">
+          <button
+            *ngIf="!item.btn_load"
+            (click)="descargarCert(item)"
+            class="certificados__data--cards-card-download-button"
+          >
             Descargar Certificado
           </button>
+
+          <button
+            *ngIf="item.btn_load"
+            class="certificados__data--cards-card-download-button disabled"
+            [disabled]
+          >
+            <div class="loadingio-spinner-rolling-j5etwe7pi5k">
+              <div class="ldio-s45l4gig2e">
+                <div></div>
+              </div>
+            </div>
+            {{ item.mensaje_btn }}
+          </button>
         </div>
+      </div>
+    </div>
+
+    <div class="loading  {{ class }}">
+      <div class="loading__certificados">
+        <div class="loadingio-spinner-rolling-gtg2h2xv46o">
+          <div class="ldio-hl7hapmg3r9">
+            <div></div>
+          </div>
+        </div>
+        <p>Espere por favor, estamos cargando los certificados...</p>
       </div>
     </div>
   </div>
