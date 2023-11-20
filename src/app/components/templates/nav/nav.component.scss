@@ -1,11 +1,149 @@
-@use "../../../../assets/scss/base/variables" as v;
-@use "../../../../assets/scss/base/mixins" as m;
+@use "../../../../assets/scss/base/variables"as v;
+@use "../../../../assets/scss/base/mixins"as m;
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
 
 .nav {
-  display: none;
+  display: block;
+  border-radius: 1rem;
+  margin: 3.8rem 1.4rem 0;
+  background-color: v.$nav;
+  padding: 1.3rem 2.3rem;
+
+  &__logo {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+    align-items: center;
+
+    a {
+      img {
+        width: 150px;
+        height: 39px;
+      }
+    }
+
+    svg {
+      fill: v.$blanco;
+      width: 3.9rem;
+      &:hover{
+        fill: v.$primary;
+      }
+    }
+  }
+
   &__menu {
     ul {
       display: none;
+    }
+
+    &--movil {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      height: 100%;
+      width: 50vw;
+      overflow: hidden;
+      background-color: lighten(v.$dark, 5);
+      z-index: 100;
+      border-top-left-radius: 2rem;
+      border-bottom-left-radius: 2rem;
+      display: none;
+
+      &.open {
+        display: block;
+        // opacity: 1;
+        // transition: opacity 0.3s ease;
+        animation: slideIn 0.3s ease;
+      }
+
+      &.closed {
+        animation: slideOut 0.3s ease;
+    //     opacity: 0;
+    // transition: opacity 0.3s ease;
+    // display: none;
+      }
+
+      &-close {
+        display: block;
+        position: absolute;
+        top: 2rem;
+        left: 2rem;
+        width: 2.4rem;
+        height: 2.4rem;
+
+        svg {
+          width: 100%;
+          height: 100%;
+          color: rgba(v.$blanco, 0.5);
+
+          &:hover {
+            color: rgba(v.$primary, 0.5);
+          }
+        }
+      }
+
+      &-data {
+        margin-top: 10rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          width: 12rem;
+          height: 12rem;
+          border-radius: 2rem;
+        }
+
+        span {
+          color: rgba(v.$blanco, 0.8);
+          font-size: 1.8rem;
+          font-weight: bold;
+        }
+
+        nav {
+          margin-top: 3rem;
+
+          ul {
+            display: flex;
+            flex-direction: column;
+            gap: 1.7rem;
+            justify-content: center;
+            align-items: center;
+
+            li {
+              a {
+                color: rgba(v.$blanco, 0.5);
+                @include m.enlace;
+
+                &.active {
+                  color: darken(v.$primary, 30);
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -20,6 +158,7 @@
     padding: 1.3rem 2.3rem;
     justify-content: space-between;
     align-items: center;
+
     &__logo {
       a {
         img {
@@ -27,21 +166,32 @@
           height: 39px;
         }
       }
+
+      svg {
+        display: none;
+      }
     }
+
     &__menu {
       ul {
         display: flex;
         flex-direction: row;
         gap: 1.7rem;
+
         li {
           a {
             color: rgba(v.$blanco, 0.5);
             @include m.enlace;
+
             &.active {
               color: darken(v.$primary, 30);
             }
           }
         }
+      }
+
+      &--movil {
+        display: none;
       }
     }
   }
