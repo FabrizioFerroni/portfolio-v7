@@ -115,7 +115,13 @@
       <!-- Fin Github -->
     </div>
     <div class="contactame__data--forms">
-      <form method="POST" #form="ngForm" class="contactame__data--forms-form" id="contactForm" (submit)="contacto(form)">
+      <form
+        method="POST"
+        #form="ngForm"
+        class="contactame__data--forms-form"
+        id="contactForm"
+        (submit)="contacto(form)"
+      >
         <span class="contactame__data--forms-form-valid">
           <i class="uil uil-check"></i> Se envio el mensaje con éxito. Le
           responderé a la brevedad
@@ -234,6 +240,7 @@
                 id="mensaje"
                 [(ngModel)]="contactoForm.mensaje"
                 placeholder="Deje aqui su mensaje"
+                required
               ></textarea>
             </div>
             <span class="is-invalid error">
@@ -247,7 +254,12 @@
               Enviar
             </button>
 
-            <button type="button" *ngIf="btn_load" [disabled]="!form.valid" class="disabled flex boton--loading">
+            <button
+              type="button"
+              *ngIf="btn_load"
+              [disabled]="!form.valid"
+              class="disabled flex boton--loading"
+            >
               <div class="loadingio-spinner-rolling-j5etwe7pi5k">
                 <div class="ldio-s45l4gig2e">
                   <div></div>
@@ -256,7 +268,14 @@
               {{ mensaje_btn }}
             </button>
 
-            <span class="{{ display }} contactame__data--forms-form-message contactame__data--forms-form-message-{{ type }}">{{ mensaje }}</span>
+            <span
+              class="{{
+                display
+              }} contactame__data--forms-form-message contactame__data--forms-form-message-{{
+                type
+              }}"
+              >{{ mensaje }}</span
+            >
           </div>
         </div>
       </form>

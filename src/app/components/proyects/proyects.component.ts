@@ -51,14 +51,14 @@ export class ProyectsComponent implements OnInit {
   }
 
   get totalPages(): number {
-    return Math.ceil(this.totalItems / this.limit);
+    return Math.ceil(this.totalItems - this.limit);
   }
 
   isFirstPage(): boolean {
     return this.page === 0;
   }
   isLastPage(): boolean {
-    return this.page >= this.totalPages - 1;
+    return this.page >= this.totalPages;
   }
 
   nextPage(): void {

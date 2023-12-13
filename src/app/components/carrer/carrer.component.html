@@ -35,6 +35,13 @@
         </div>
       </div>
 
+      <div class="no_worksandstudies" *ngIf="work.length < 1">
+        <div class="no_worksandstudies__data">
+          <p>😢</p>
+          <span>Aún no se ha subido un trabajo.</span>
+        </div>
+      </div>
+
       <!-- botones -->
       <div
         class="carrera__carreras--arrows"
@@ -65,13 +72,24 @@
     <div class="carrera__carreras--academys {{ class_type }}">
       <p class="carrera__carreras--academys-title">Académico</p>
       <span class="carrera__carreras--academys-description"
-        >2014 - Actualmente</span
+        >2009 - Actualmente</span
       >
+
+      <div class="no_worksandstudies" *ngIf="academy.length < 1">
+        <div class="no_worksandstudies__data">
+          <p>😢</p>
+          <span>Aún no se ha subido un estudio.</span>
+        </div>
+      </div>
+
+      <!-- *ngFor="let item of academy | academys : pageAcademys : limitAcademys" -->
+      <!-- *ngFor="let item of estudio" -->
 
       <div
         class="carrera__carreras--academys-cards {{
           item.actual ? 'carrera__carreras--academys-cards-active' : ''
         }}"
+
         *ngFor="let item of academy | academys : pageAcademys : limitAcademys"
       >
         <h5 class="carrera__carreras--academys-cards-title">
@@ -94,6 +112,7 @@
       </div>
 
       <!-- botones -->
+      <!-- (academy | academys : pageAcademys : limitAcademys) -->
       <div
         class="carrera__carreras--arrows"
         *ngIf="(academy | academys : pageAcademys : limitAcademys).length > 0"

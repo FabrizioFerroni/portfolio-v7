@@ -63,6 +63,31 @@
   }
 }
 
+.no_certificates{
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  &__data{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2.5rem;
+    border: 0.1rem solid rgba(v.$primary, 0.1);
+    border-radius: 1.6rem;
+    padding: 3.5rem;
+    width: 35rem;
+    background-color: rgba(v.$primary, 0.1);
+    p{
+      text-align: center;
+      font-size: 6rem;
+    }
+    span{
+      text-align: center;
+    }
+  }
+}
+
 
 
 
@@ -264,6 +289,10 @@
   @include m.desktop {
     // margin: 0 14rem 5rem 14rem;
     margin: 15rem 14rem;
+
+    .no_certificates{
+      margin-top: 0;
+    }
 
     .loading{
       margin-top: 0;

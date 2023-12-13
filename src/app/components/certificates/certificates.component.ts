@@ -16,6 +16,7 @@ export class CertificatesComponent implements OnInit {
   limit!: number;
   pdfBlob: Blob | null = null;
   class: string = 'flex';
+  class_empty: string = 'hidden';
 
   constructor(private apiService: ApiService) {
     this.page = 0;
@@ -36,6 +37,7 @@ export class CertificatesComponent implements OnInit {
         this.certificates = data;
         this.certificate = data.certificados.map(certificado => ({ ...certificado, btn_load: false, mensaje_btn: '' }));
         this.class = 'hidden';
+        this.class_empty = 'flex';
       },
       error: (err) => {
         console.error(err);
@@ -63,17 +65,28 @@ export class CertificatesComponent implements OnInit {
     });
   }
 
+  // createDownloadLink(slug: string) {
+  //   if (this.pdfBlob) {
+  //     const url = window.URL.createObjectURL(this.pdfBlob);
+  //     const link = document.createElement('a');
+  //     link.href = url;
+  //     link.download = `${slug}.pdf`;
+  //     link.style.display = 'none';
+  //     document.body.appendChild(link);
+  //     link.click();
+  //     window.URL.revokeObjectURL(url);
+  //     document.body.removeChild(link);
+  //   }
+  // }
+
   createDownloadLink(slug: string) {
     if (this.pdfBlob) {
       const url = window.URL.createObjectURL(this.pdfBlob);
       const link = document.createElement('a');
       link.href = url;
       link.download = `${slug}.pdf`;
-      link.style.display = 'none';
-      document.body.appendChild(link);
       link.click();
       window.URL.revokeObjectURL(url);
-      document.body.removeChild(link);
     }
   }
 
@@ -82,14 +95,14 @@ export class CertificatesComponent implements OnInit {
   }
 
   get totalPages(): number {
-    return Math.ceil(this.totalItems / this.limit);
+    return Math.ceil(this.totalItems - this.limit);
   }
 
   isFirstPage(): boolean {
     return this.page === 0;
   }
   isLastPage(): boolean {
-    return this.page >= this.totalPages - 1;
+    return this.page >= this.totalPages;
   }
 
   nextPage(): void {

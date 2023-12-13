@@ -4,6 +4,7 @@ import { Academys } from '@app/interfaces/Academys';
 import { Certificates } from '@app/interfaces/Certificates';
 import { Contact } from '@app/interfaces/Contact';
 import { Cv } from '@app/interfaces/Cv';
+import { Estudios } from '@app/interfaces/Estudios';
 import { Mensaje } from '@app/interfaces/Mensaje';
 import { Proyects } from '@app/interfaces/Projects';
 import { Testimonials } from '@app/interfaces/Testimonials';
@@ -30,6 +31,10 @@ export class ApiService {
 
   getAcademys(): Observable<Academys> {
     return this.http.get<Academys>(`${this.url}/estudios`);
+  }
+
+  getEstudios(limit?: number, page: number = 1): Observable<Estudios> {
+    return this.http.get<Estudios>(`${this.url}/estudios?limit=${limit}&page=${page}`);
   }
 
   getCertificates(): Observable<Certificates> {

@@ -189,7 +189,8 @@
             gap: 1.5rem;
             justify-content: center;
             align-items: center;
-            border: 0.1rem solid rgba(v.$primary, 0.5);
+            border: 0.1rem solid rgba(v.$primary, 0.1);
+            background-color: rgba(v.$primary, 0.1);
             border-radius: 1.6rem;
             padding: 5rem;
             width: 34rem;
@@ -201,9 +202,9 @@
             &-a {
               padding-top: 1.6rem;
               font-size: 1.5rem;
-              color: rgba(v.$primary, 0.5);
+              color: rgba(v.$blanco, 0.5);
               &:hover {
-                color: rgba(v.$blanco, 0.5);
+                color: rgba(v.$blanco, 0.8);
               }
             }
           }
@@ -354,7 +355,8 @@
               gap: 1.5rem;
               justify-content: center;
               align-items: center;
-              border: 0.1rem solid rgba(v.$primary, 0.5);
+              border: 0.1rem solid rgba(v.$primary, 0.1);
+              background-color: rgba(v.$primary, 0.1);
               border-radius: 1.6rem;
               padding: 5rem;
               width: 40rem;
@@ -366,8 +368,9 @@
               &-a {
                 padding-top: 1.6rem;
                 font-size: 1.8rem;
+                color: rgba(v.$blanco, 0.5);
                 &:hover {
-                  color: rgba(v.$blanco, 0.5);
+                  color: rgba(v.$blanco, 0.8);
                 }
               }
             }

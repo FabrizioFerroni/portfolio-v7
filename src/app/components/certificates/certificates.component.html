@@ -97,4 +97,11 @@
       </div>
     </div>
   </div>
+
+  <div class="no_certificates {{ class_empty }}" *ngIf="certificate.length < 1">
+    <div class="no_certificates__data">
+      <p>😢</p>
+      <span>Aún no se ha subido un certificado.</span>
+    </div>
+  </div>
 </section>

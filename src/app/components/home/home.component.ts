@@ -76,17 +76,43 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  // createDownloadLink(slug: string) {
+  //   if (this.pdfBlob) {
+  //     const url = window.URL.createObjectURL(this.pdfBlob);
+  //     const link = document.createElement('a');
+  //     link.href = url;
+  //     link.download = `${slug}.pdf`;
+  //     link.style.display = 'none';
+  //     document.body.appendChild(link);
+  //     link.click();
+  //     window.URL.revokeObjectURL(url);
+  //     document.body.removeChild(link);
+  //   }
+  // }
+
+  // createDownloadLink(slug: string) {
+  //   if (this.pdfBlob) {
+  //     const url = window.URL.createObjectURL(this.pdfBlob);
+  //     window.open(url, '_blank'); // Abre el Blob en una nueva ventana para verificar
+  //     const link = document.createElement('a');
+  //     link.href = url;
+  //     link.download = `${slug}.pdf`;
+  //     link.style.display = 'none';
+  //     document.body.appendChild(link);
+  //     link.click();
+  //     window.URL.revokeObjectURL(url);
+  //     document.body.removeChild(link);
+  //   }
+  // }
+
   createDownloadLink(slug: string) {
     if (this.pdfBlob) {
       const url = window.URL.createObjectURL(this.pdfBlob);
       const link = document.createElement('a');
       link.href = url;
       link.download = `${slug}.pdf`;
-      link.style.display = 'none';
-      document.body.appendChild(link);
       link.click();
       window.URL.revokeObjectURL(url);
-      document.body.removeChild(link);
     }
   }
 }

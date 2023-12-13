@@ -26,16 +26,12 @@ export class CarrerComponent implements OnInit {
 
   constructor(private apiService: ApiService) {
     this.pageWorks = 0;
-    if (this.isMobile()) {
-      this.limitWorks = 1;
-    } else {
-      this.limitWorks = 3;
-    }
-
     this.pageAcademys = 0;
     if (this.isMobile()) {
+      this.limitWorks = 1;
       this.limitAcademys = 1;
     } else {
+      this.limitWorks = 3;
       this.limitAcademys = 3;
     }
   }
@@ -58,33 +54,19 @@ export class CarrerComponent implements OnInit {
     });
   }
 
-  getEstudios(): void {
-    this.apiService.getAcademys().subscribe({
-      next: (data: Academys) => {
-        this.academys = data;
-        this.academy = data.estudios;
-        this.class = 'hidden';
-        this.class_type = 'flex';
-      },
-      error: (err) => {
-        console.error(err);
-      },
-    });
-  }
-
   get totalItemsW(): number {
     return this.work.length;
   }
 
   get totalPagesW(): number {
-    return Math.ceil(this.totalItemsW / this.limitWorks);
+    return Math.ceil(this.totalItemsW - this.limitWorks);
   }
 
   isFirstPageW(): boolean {
     return this.pageWorks === 0;
   }
   isLastPageW(): boolean {
-    return this.pageWorks >= this.totalPagesW - 1;
+    return this.pageWorks >= this.totalPagesW;
   }
 
   nextPageW(): void {
@@ -97,19 +79,34 @@ export class CarrerComponent implements OnInit {
   }
 
   // Academy
-  get totalItemsA(): number {
-    return this.academy.length;
-  }
-
-  get totalPagesA(): number {
-    return Math.ceil(this.totalItemsA / this.limitAcademys);
+  getEstudios(): void {
+    this.apiService.getAcademys().subscribe({
+      next: (data: Academys) => {
+        this.academys = data;
+        this.academy = [...data.estudios];
+        this.class = 'hidden';
+        this.class_type = 'flex';
+      },
+      error: (err) => {
+        console.error(err);
+      },
+    });
   }
 
   isFirstPageA(): boolean {
     return this.pageAcademys === 0;
   }
+
+  get totalItemsA(): number {
+    return this.academy.length;
+  }
+
+  get totalPagesA(): number {
+    return Math.ceil(this.totalItemsA - this.limitAcademys);
+  }
+
   isLastPageA(): boolean {
-    return this.pageAcademys >= this.totalPagesA - 1;
+    return this.pageAcademys >= this.totalPagesA;
   }
 
   nextPageA(): void {
